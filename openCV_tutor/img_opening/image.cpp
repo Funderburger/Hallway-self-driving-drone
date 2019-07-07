@@ -1,25 +1,26 @@
+#include <stdio.h>
 #include <opencv2/opencv.hpp>
-#include <iostream>
-#include <string>
 
+/*after compiling it call the object with the name of the picture like this:
+./object_name black_hole.jpg */
 using namespace cv;
-using namespace std;
-int main( int argc, char** argv )
+
+int main(int argc, char** argv )
 {
-    String imageName( "red_eyes.jpg" ); // by default
-    if( argc > 1)
+    if ( argc != 2 )
     {
-        imageName = argv[1];
-    }
-    Mat image;
-    image = imread( imageName, IMREAD_COLOR ); // Read the file
-    if( image.empty() )                      // Check for invalid input
-    {
-        cout <<  "Could not open or find the image" << std::endl ;
+        printf("usage: DisplayImage.out <Image_Path>\n");
         return -1;
     }
-    namedWindow( "Display window", WINDOW_AUTOSIZE ); // Create a window for display.
-    imshow( "Display window", image );                // Show our image inside it.
-    waitKey(0); // Wait for a keystroke in the window
+    Mat image;
+    image = imread( argv[1], 1 );
+    if ( !image.data )
+    {
+        printf("No image data \n");
+        return -1;
+    }
+    namedWindow("Display Image", WINDOW_AUTOSIZE );
+    imshow("Display Image", image);
+    waitKey(0);
     return 0;
 }
