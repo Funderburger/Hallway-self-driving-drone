@@ -16,7 +16,7 @@ int main( void )
      { alpha = input; }
 
    src1 = imread( "../windows.png" );
-   src2 = imread( "../apple.png" );
+   src2 = imread( "../linux.png" );
 
    if( src1.empty() ) { cout << "Error loading src1" << endl; return -1; }
    if( src2.empty() ) { cout << "Error loading src2" << endl; return -1; }
