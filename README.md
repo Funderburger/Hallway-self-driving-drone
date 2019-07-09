@@ -1,6 +1,6 @@
 # Ardrone Setup
 
-#1. Install Ubuntu 16.04 LTS
+# 1. Install Ubuntu 16.04 LTS
 
 _- make a bootable stick with Ubuntu 1604 from here:
 	http://releases.ubuntu.com/16.04/
