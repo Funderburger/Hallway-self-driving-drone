@@ -1,0 +1,30 @@
+Steps:
+	-catkin_create_pkg "package_name" -in catkin_ws/src
+	-cd "package_name"
+	-mkdir -p src
+	-put your c++ file in src created above
+	-cd ~/catkin_ws
+	-catkin_make
+	-put your dependencies in package.xml
+	-put the next lines in CMakeLists.txt:
+		- find_package(catkin REQUIRED COMPONENTS
+		  ardrone_autonomy
+		  cv_bridge
+		  image_transport
+		  roscpp
+		)
+		find_package(OpenCV)
+		
+		-include_directories(
+		  ${catkin_INCLUDE_DIRS}
+		  ${OpenCV_INCLUDE_DIRS}
+		)
+
+		-add_executable(tagfollower_node src/followControl_Original.cpp)
+	
+		- target_link_libraries(tagfollower_node
+		   ${catkin_LIBRARIES}
+		   ${OpenCV_LIBRARIES}
+		 )
+	-catkin_make in your catkin_ws
+	-give it a source devel/setup.bash and it should work fine.
