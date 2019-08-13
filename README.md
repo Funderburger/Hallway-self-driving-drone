@@ -103,7 +103,10 @@ and now should work just fine.
 
 ## Other usefull (docker) commands
 
-`sudo docker ps -a  	            # Show all containers (default shows just running)
- sudo docker start <container_name> #starting a container
- sudo docker run -it -v /data --name <container_name> bash #launch and create a /data volume
- sudo docker image ls -a            # Show all images (default hides intermediate images)
+`sudo docker ps -a  	            # Show all containers (default shows just running)`
+
+`sudo docker start <container_name> #starting a container`
+ 
+`sudo docker run -it -v /data --name <container_name> bash #launch and create a /data volume`
+ 
+ `sudo docker image ls -a            # Show all images (default hides intermediate images)`
