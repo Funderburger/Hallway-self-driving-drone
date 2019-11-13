@@ -1,2 +1,0 @@
-
--DCATKIN_DEVEL_PREFIX=/home/tyfun/TutorialsAndOthers/edgeDetection/devel -DCMAKE_INSTALL_PREFIX=/home/tyfun/TutorialsAndOthers/edgeDetection/install -G Unix Makefiles
