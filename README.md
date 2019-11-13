@@ -10,7 +10,7 @@
 
 	http://wiki.ros.org/kinetic/Installation/Ubuntu
 
-3. Install the tum simulator an follow the instructions from here:
+3. Install the simulator (tum simulator) an follow the instructions from here:
 
 	https://github.com/angelsantamaria/tum_simulator
 
