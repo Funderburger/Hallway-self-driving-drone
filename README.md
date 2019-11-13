@@ -1,3 +1,35 @@
+# Corridor follow app for Parrot Ardrone 2.0
+
+	Here are two prjects for a drone that should fly along a hallway using just the camera. The Vanishing Point app is good, but very sensitive to light changes. The second application is based on a neural network, being more robust, but having troubles detecting the end of the hallway. 
+
+# CNN App
+[Dorbala,  V.S.,  Hafez,  A.H.A.,  and  Jawahar,  C.V.  (2019).A deep  learning  approach  for  robust  corridor  following  from an  arbitrary  pose. In 2019 27th Signal Processing and Communications Applications Conference (SIU), 1–4](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8806271)
+	In order to run the app you need to:
+- connect to ardrone: 'roslaunch ardrone_autonomy ardrone.launch'
+- run image_proc for the rectified image of the drone: 'ROS_NAMESPACE=/ardrone/front rosrun image_proc image_proc'
+- if you want to look through the drone eye: 'rosrun image_view image_view image:=/ardrone/front/image_rect_color'
+- loading and running the model (it takes about two minutes to load the model): python best_take_drone_images.py
+
+## Requirements
+Tip: The easiest way to install the following libraries is by creating a virtual environment.
+
+- python 3.5.2 if you want to train your own network
+- python 2.7.12 for getting the images and pass them through the network
+- tensorflow 1.14.0
+- keras 2.3.0
+- OpenCV 3.3.1-dev is the one that came with ros kinetic
+
+#Vanishing point App
+
+Ref to: Előd Páll, Levente Tamás, Lucian Buşoniu, "Vision-Based Quadcopter Navigation in Structured Environments", In Handling Uncertainty and Networked Structure in Robot Control, Springer, Studies in Systems, Decision and Control Series, L. Busoniu, L. Tamas (editors), pp 265-290, 2016
+
+	In order to run the app you would need to:
+- build the two nodes from Vanihing_Point, I think that 'catkin_make" should do it
+- connect to ardrone: 'roslaunch ardrone_autonomy ardrone.launch'
+- run image_proc for the rectified image of the drone: 'ROS_NAMESPACE=/ardrone/front rosrun image_proc image_proc'
+- run the control: 'rosrun drone_control drone_control_node
+- run the node that process the images:  rosrun CorridorFlyControl CorridorFlyControl
+
 # Ardrone Setup
 
 1. Install Ubuntu 16.04 LTS
@@ -17,16 +49,18 @@
 - if you want to control the drone using keyboard:
 
 	http://wiki.ros.org/teleop_twist_keyboard
+4. Install tum_ardrone (for the real drone), which also needs ardrone_autonomy:
+	http://wiki.ros.org/tum_ardrone
 
+Other useful settings and commands:
+- creating a virtual environment: 'virtualenv -p <python_version> .venv_name_of_environment
 
-Other useful settings:
-
-- if working with VS Code this might help you using the debugger:
+- if working with VS Code this might help you using the debugger(if you have problems):
 	https://bytefreaks.net/programming-2/cc-how-do-you-set-gdb-debug-flag-g-with-cmake
 
 # Setup for Jetson Nano
 
-It is only working in a docker, so follow thes steps:
+This is if you want to work with a Nvidia Jetson Nano board, also I think that the setup beneath, might also work on Ubuntu 18, not only on Jetson, but is only working in a docker container, so follow these steps:
 
 1. Install docker image: 
 
