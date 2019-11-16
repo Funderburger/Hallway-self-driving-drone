@@ -1,7 +1,7 @@
 from __future__ import print_function
 import numpy as np
 import matplotlib.pyplot as plt
-#####%matplotlib inline
+
 import pandas as pd
 import keras
 from keras.utils import to_categorical
@@ -54,12 +54,6 @@ validation_datagen = ImageDataGenerator(rescale=1./255)
 train_batch_size = 32
 val_batch_size = 16
 
-
-
-
-###train_features = np.zeros(shape=(nTrain, 7, 7, 2048)) #numbers from the last layer showed by .summary()
-###train_labels = np.zeros(shape=(nTrain))
-
 #search in keras documentation for how the data of flow_from_dataframe works, and the parameters
 dataframe_train=pd.read_excel('train_truths.xls')
 
@@ -100,39 +94,6 @@ history = model.fit_generator(train_features,
 		    verbose=1)
 
 model.save('third_save.h5')
-
-
-
-#i = 0
-#for inputs_batch, labels_batch in train_generator:
-#    features_batch = resnet50_model.predict(inputs_batch)
-#    train_features[i * batch_size : (i + 1) * batch_size] = features_batch
-#    train_labels[i * batch_size : (i + 1) * batch_size] = labels_batch
-#    i += 1
-#    if i * batch_size >= nTrain:
-#        break
-#        
-#train_features = np.reshape(train_features, (nTrain, 7 * 7 * 2048))
-#
-#
-#validation_features = np.zeros(shape=(nVal, 7, 7, 2048))
-#validation_labels = np.zeros(shape=(nVal))
-#
-#
-#
-#
-#
-#i = 0
-#for inputs_batch, labels_batch in validation_generator:
-#    features_batch = resnet50_model.predict(inputs_batch)
-#    validation_features[i * batch_size : (i + 1) * batch_size] = features_batch
-#    validation_labels[i * batch_size : (i + 1) * batch_size] = labels_batch
-#    i += 1
-#    if i * batch_size >= nVal:
-#        break
-#
-#validation_features = np.reshape(validation_features, (nVal, 7 * 7 * 2048))
-
 
 #ploting a graph of mse evolution
 acc = history.history['acc']
