@@ -11,6 +11,7 @@ Here are two projects for a drone that should fly along a hallway using just the
 ## CNN App
 
 In order to run the app you need to:
+- download dataset (and the model): https://drive.google.com/open?id=11vRrHzxiLbQmqzcTxSd428bQrkmF5sDF
 - connect to ardrone:  `roslaunch ardrone_autonomy ardrone.launch`
 - run image_proc for the rectified image of the drone: `ROS_NAMESPACE=/ardrone/front rosrun image_proc image_proc`
 - if you want to look through the drone eye: `rosrun image_view image_view image:=/ardrone/front/image_rect_color`
