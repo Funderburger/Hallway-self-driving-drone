@@ -142,9 +142,12 @@ with:
 `"mov        %0, %2\n"`
 
 and now should work just fine.
+
  5. In order to save the new package added to this container, from a different terminal do this:
+ 
  	`sudo docker commit <ID of container on which you worked> <a custom name for your new image>`
-	Now everytime you run this image you will have the ardrone_autonomy package installed.
+	
+Now everytime you run this image you will have the ardrone_autonomy package installed.
 
 **Other usefull (docker) commands:**
 
