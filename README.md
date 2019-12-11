@@ -141,7 +141,10 @@ with:
 
 `"mov        %0, %2\n"`
 
-and now should work just fine. 
+and now should work just fine.
+ 5. In order to save the new package added to this container, from a different terminal do this:
+ 	`sudo docker commit <ID of container on which you worked> <a custom name for your new image>`
+	Now everytime you run this image you will have the ardrone_autonomy package installed.
 
 **Other usefull (docker) commands:**
 
@@ -151,4 +154,4 @@ and now should work just fine.
  
 `sudo docker run -it -v /data --name <container_name> bash #launch and create a /data volume`
  
-`sudo docker image ls -a            # Show all images (default hides intermediate images)`
+`sudo docker images            # Shows all images `
