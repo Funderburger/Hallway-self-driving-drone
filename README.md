@@ -68,7 +68,7 @@ In order to run the app you would need to:
 
 # Setup for Jetson Nano
 
-This is if you want to work with a Nvidia Jetson Nano board, also I think that the setup beneath, might also work on Ubuntu 18, not only on Jetson, but is only working in a docker container, so follow these steps:
+This is if you want to work with a Nvidia Jetson Nano board, also I think that the setup beneath, but is only working in a docker container, so follow these steps:
 
 1. Install docker image: 
 
@@ -158,3 +158,25 @@ Now everytime you run this image you will have the ardrone_autonomy package inst
 `sudo docker run -it -v /data --name <container_name> bash #launch and create a /data volume`
  
 `sudo docker images            # Shows all images `
+
+
+# Ubuntu 18 requirements
+
+You still need to make the steps 1 and 2 from the Jetson Nano setup, in order to make the ardrone package work.
+Also, when you start your container you should use these commands for getting access to display, seeing ros topics outside the docker container etc.:
+
+`xhost +`
+
+`sudo docker run --gpus all -it -d --rm --net=host --ipc=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -v path/to/your/workspace:path/to/your/workspace docker_image_name:docker_image_tag bash`
+
+(Hint: `--gpus all` is not absolutely required, only if you plan to use the gpu inside the container.)
+To start the container: 
+
+`dock exec -it container_name bash`
+
+After you launch ardrone.launch inside the container, you should also be able to see the published topics even outside this container.
+So, on your computer, in your workspace, you should create a virtual environment (`virtualenv -p python3.6.9 .venv_and_your_custom_name`), activate it (`source .venv_and_your_custom_name/bin/activate`) and you should install tensorflow and keras here in order to run `python py3_best_take_drone.py`. I tested this in `python3.6.9` with `keras 2.4.3` and `tensorflow 2.4.1`. 
+
+If you have any kind of questions/issues please fill an issue. =D 
+
+Have fun!
