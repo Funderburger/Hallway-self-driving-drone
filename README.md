@@ -181,7 +181,9 @@ So, on your computer, in your workspace, you should create a virtual environment
 
 I prepared two docker images:
  - one with the ardrone_autonomy package installed: https://hub.docker.com/repository/docker/funderburger/ardrone_autonomy_ros_ubuntu_16
+	`docker pull funderburger/ardrone_autonomy_ros_ubuntu_16:latest`
  - and another with the model and tensorflow and keras, which also contains this repo: https://hub.docker.com/repository/docker/funderburger/hallway_self_driving_drone_ub18_tf2.4.1_keras_2.4.3
+	`docker pull funderburger/hallway_self_driving_drone_ub18_tf2.4.1_keras_2.4.3:latest`
 
 If you have any kind of questions/issues please fill an issue. =D 
 
