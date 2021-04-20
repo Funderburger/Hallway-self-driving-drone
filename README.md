@@ -177,6 +177,12 @@ To start the container:
 After you launch ardrone.launch inside the container, you should also be able to see the published topics even outside this container.
 So, on your computer, in your workspace, you should create a virtual environment (`virtualenv -p python3.6.9 .venv_and_your_custom_name`), activate it (`source .venv_and_your_custom_name/bin/activate`) and you should install tensorflow and keras here in order to run `python py3_best_take_drone.py`. I tested this in `python3.6.9` with `keras 2.4.3` and `tensorflow 2.4.1`. 
 
+# Also... Docker images! :)
+
+I prepared two docker images:
+ - one with the ardrone_autonomy package installed: https://hub.docker.com/repository/docker/funderburger/ardrone_autonomy_ros_ubuntu_16
+ - and another with the model and tensorflow and keras, which also contains this repo: https://hub.docker.com/repository/docker/funderburger/hallway_self_driving_drone_ub18_tf2.4.1_keras_2.4.3
+
 If you have any kind of questions/issues please fill an issue. =D 
 
 Have fun!
